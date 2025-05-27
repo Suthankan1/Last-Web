@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "firebase": "^11.8.1",
+    "pdfjs-dist": "^5.2.133",
+    "react-pdf": "^9.2.1",
+    "react-router-dom": "^7.6.1"
+  }
+}
