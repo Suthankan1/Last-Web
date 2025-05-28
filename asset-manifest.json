@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Last-Web/booknest-frontend/static/css/main.ee7de7fc.css",
+    "main.js": "/Last-Web/booknest-frontend/static/js/main.0e4a4a14.js",
+    "index.html": "/Last-Web/booknest-frontend/index.html",
+    "main.ee7de7fc.css.map": "/Last-Web/booknest-frontend/static/css/main.ee7de7fc.css.map",
+    "main.0e4a4a14.js.map": "/Last-Web/booknest-frontend/static/js/main.0e4a4a14.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ee7de7fc.css",
+    "static/js/main.0e4a4a14.js"
+  ]
+}
