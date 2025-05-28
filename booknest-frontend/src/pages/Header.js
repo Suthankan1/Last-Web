@@ -1,16 +1,16 @@
-// Header.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Header.css';  // You can keep your header styles here or import Home.css if you want to reuse the same styles
+import '../styles/Header.css';
 
 const Header = () => {
   return (
     <header>
-      <h1>BookNest</h1>
+      <h1><Link to="/" className="logo-link">BookNest</Link></h1>
       <nav>
         <Link to="/" className="menu-link">Home</Link>
+
         <div className="dropdown">
-          <Link to="/categories" className="menu-link">Categories</Link>
+          <Link to="/categories" className="menu-link">Categories ▾</Link>
           <div className="dropdown-content">
             <Link to="/categories/top">Top Category</Link>
             <Link to="/categories/fiction">Fiction</Link>
@@ -18,9 +18,14 @@ const Header = () => {
             <Link to="/categories/children">Children</Link>
           </div>
         </div>
+
         <Link to="/top-picks" className="menu-link">Top Picks</Link>
         <Link to="/contact" className="menu-link">Contact</Link>
         <Link to="/my-books" className="menu-link">My Books</Link>
+
+        {/*Optional: add auth links here if you want */}
+        <Link to="/signin" className="menu-link">Sign In</Link>
+        <Link to="/signup" className="menu-link">Sign Up</Link>
       </nav>
     </header>
   );

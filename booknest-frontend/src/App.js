@@ -1,8 +1,6 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Import pages from the pages folder
 import Home from './pages/Home';
 import Categories from './pages/Categories';
 import TopCategory from './pages/TopCategory';
@@ -12,6 +10,10 @@ import Children from './pages/Children';
 import TopPicks from './pages/TopPicks';
 import Contact from './pages/Contact';
 import MyBooks from './pages/MyBooks';
+
+import SignIn from './pages/Signin';
+import SignUp from './pages/Signup';
+import Account from './pages/Account';
 
 function App() {
   return (
@@ -28,6 +30,11 @@ function App() {
         <Route path="/top-picks" element={<TopPicks />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/my-books" element={<MyBooks />} />
+
+        {/* Authentication routes */}
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
     </Router>
   );
