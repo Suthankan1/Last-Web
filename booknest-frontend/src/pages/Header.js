@@ -30,8 +30,8 @@ const Header = () => {
         <Link to="/my-books" className="menu-link">My Books</Link>
 
         {/*Optional: add auth links here if you want */}
-        <Link to="/signin" className="menu-link">Sign In</Link>
-        <Link to="/signup" className="menu-link">Sign Up</Link>
+        <Link to="/cart" className="menu-link">Cart</Link>
+        <Link to="/signup" className="menu-link">Account</Link>
       </nav>
     </header>
   );
