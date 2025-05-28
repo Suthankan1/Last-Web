@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Cart.css";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const TAX_RATE = 0.08;
 
@@ -9,8 +11,7 @@ const initialCartItems = [
     title: "Kitchen princess",
     author: "David Flanagan",
     price: 29.99,
-    image:
-      "/assets/book5.jpg",
+    image: "/assets/book5.jpg",
   },
   {
     id: 2,
@@ -23,8 +24,7 @@ const initialCartItems = [
   {
     id: 3,
     title: "Design Patterns: Elements of Reusable Object-Oriented Software",
-    author:
-      "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+    author: "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
     price: 49.99,
     image:
       "https://m.media-amazon.com/images/I/51szD9HC9pL._SX395_BO1,204,203,200_.jpg",
@@ -44,7 +44,6 @@ const Cart = () => {
 
   const handleCheckout = () => {
     alert("Thank you for your purchase! Redirecting to checkout...");
-    // Add checkout logic here (redirect to payment etc)
   };
 
   const handleContinueShopping = () => {
@@ -53,9 +52,7 @@ const Cart = () => {
 
   return (
     <div className="container">
-      <header>
-        <h1>My BookNest Cart</h1>
-      </header>
+      <Header />
 
       <div className="cart-container">
         <section className="cart-items">
@@ -117,6 +114,8 @@ const Cart = () => {
           </button>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 };
