@@ -10,6 +10,7 @@ import Children from './pages/Children';
 import TopPicks from './pages/TopPicks';
 import Contact from './pages/Contact';
 import MyBooks from './pages/MyBooks';
+import Cart from './pages/Cart';
 
 import SignIn from './pages/Signin';
 import SignUp from './pages/Signup';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/top-picks" element={<TopPicks />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/my-books" element={<MyBooks />} />
+        <Route path="/cart" element={<Cart />} />
 
         {/* Authentication routes */}
         <Route path="/signin" element={<SignIn />} />
