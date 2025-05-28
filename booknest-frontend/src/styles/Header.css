@@ -79,7 +79,7 @@ nav a {
 }
 
 .dropdown-content a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   color: white;

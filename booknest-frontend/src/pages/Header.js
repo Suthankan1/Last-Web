@@ -22,15 +22,16 @@ const Header = () => {
             <Link to="/categories/fiction">Fiction</Link>
             <Link to="/categories/non-fiction">Non-Fiction</Link>
             <Link to="/categories/children">Children</Link>
+
           </div>
         </div>
 
         <Link to="/top-picks" className="menu-link">Top Picks</Link>
         <Link to="/contact" className="menu-link">Contact</Link>
         <Link to="/my-books" className="menu-link">My Books</Link>
+        <Link to="/cart" className="menu-link">Cart</Link>
 
         {/*Optional: add auth links here if you want */}
-        <Link to="/cart" className="menu-link">Cart</Link>
         <Link to="/signup" className="menu-link">Account</Link>
       </nav>
     </header>
