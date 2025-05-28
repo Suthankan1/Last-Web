@@ -27,7 +27,7 @@ function App() {
         <Route path="/categories/fiction" element={<Fiction />} />
         <Route path="/categories/non-fiction" element={<NonFiction />} />
         <Route path="/categories/children" element={<Children />} />
-
+        
         <Route path="/top-picks" element={<TopPicks />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/my-books" element={<MyBooks />} />
