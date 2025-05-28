@@ -39,9 +39,9 @@ const Footer = () => {
           <h3 className="footer-heading">Support</h3>
           <ul>
             <li><a href="/faq" className="footer-link">FAQ</a></li>
-            <li><a href="/help" className="footer-link">Help Center</a></li>
-            <li><a href="/privacy" className="footer-link">Privacy Policy</a></li>
-            <li><a href="/terms" className="footer-link">Terms of Service</a></li>
+            <li><a href="/help-center" className="footer-link">Help Center</a></li>
+            <li><a href="/privacy-policy" className="footer-link">Privacy Policy</a></li>
+            <li><a href="/terms-of-service" className="footer-link">Terms of Service</a></li>
           </ul>
         </div>
 
