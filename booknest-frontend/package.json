@@ -2,7 +2,6 @@
   "name": "booknest-frontend",
   "version": "1.0.0",
   "main": "index.js",
-  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -14,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "firebase": "^11.8.1",
+    "framer-motion": "^12.15.0",
+    "lucide-react": "^0.511.0",
     "pdfjs-dist": "^5.2.133",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
