@@ -1,111 +1,238 @@
-import React, { useState } from "react";
-import '../styles/SubCategory.css';
-import Header from './Header';
-import Footer from './Footer';
+import React, { useState, useMemo } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import "../styles/Children.css";
 
-const Children = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [authorFilter, setAuthorFilter] = useState("");
-  const [languageFilter, setLanguageFilter] = useState("");
+// --- Sample Data
+const SAMPLE_BOOKS = [
+  {
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?fit=crop&w=400&q=80",
+    title: "The Magical Forest",
+    author: "Sarah Pearson",
+    price: "$7.99",
+    priceNum: 7.99,
+    language: "English",
+    category: "Children's",
+    details: "Embark on a whimsical adventure in a forest where animals talk and magic is real. Perfect for ages 5-9."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?fit=crop&w=400&q=80",
+    title: "Bedtime Stories",
+    author: "James Lee",
+    price: "$5.49",
+    priceNum: 5.49,
+    language: "English",
+    category: "Children's",
+    details: "A collection of gentle bedtime tales to help little ones drift off to sleep with a smile."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1519681393-09d0def993a6?fit=crop&w=400&q=80",
+    title: "Learning ABCs",
+    author: "Maria Gomez",
+    price: "$4.99",
+    priceNum: 4.99,
+    language: "Spanish",
+    category: "Children's",
+    details: "A bright and fun introduction to the alphabet, including games and songs. Ideal for preschoolers."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1455885666651-40b5d16b2c87?fit=crop&w=400&q=80",
+    title: "The Little Explorer",
+    author: "Ahmed Zaki",
+    price: "$8.25",
+    priceNum: 8.25,
+    language: "Arabic",
+    category: "Children's",
+    details: "Follow a brave child on their journey to discover the wonders of the world. Inspiring and educational."
+  }
+];
 
-  const books = [
-    {
-      title: "Monstress",
-      author: "Marjorie Liu",
-      language: "English",
-      image: "/assets/book2.jpg"
-    },
-    {
-      title: "Blame!",
-      author: "Tsutomu Nihei",
-      language: "Japanese",
-      image: "/assets/book1.jpg"
-    },
-    {
-      title: "X-Men",
-      author: "Chris Claremont",
-      language: "English",
-      image: "/assets/book3.jpg"
-    },
-    // Add more books as needed
-  ];
+function getPriceRange(books) {
+  let min = books.length ? books[0].priceNum : 0;
+  let max = books.length ? books[0].priceNum : 0;
+  for (const b of books) {
+    if (b.priceNum < min) min = b.priceNum;
+    if (b.priceNum > max) max = b.priceNum;
+  }
+  min = Math.floor(min);
+  max = Math.ceil(max);
+  return [min, max];
+}
 
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
-  };
+export default function ChildrenCategoryPage({ books = SAMPLE_BOOKS }) {
+  const [author, setAuthor] = useState("all");
+  const [language, setLanguage] = useState("all");
+  const [[minPrice, maxPrice]] = useState([...getPriceRange(books)]);
+  const [price, setPrice] = useState(getPriceRange(books)[1]);
+  const [modalBook, setModalBook] = useState(null);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isFading, setIsFading] = useState(false);
 
-  const handleFilter = (e) => {
-    const { id, value } = e.target;
-    if (id === "authorFilter") setAuthorFilter(value);
-    if (id === "languageFilter") setLanguageFilter(value);
-  };
+  const authorOptions = useMemo(
+    () => ["All Authors", ...Array.from(new Set(books.map(b => b.author)))],
+    [books]
+  );
+  const languageOptions = useMemo(
+    () => ["All Languages", ...Array.from(new Set(books.map(b => b.language)))],
+    [books]
+  );
 
-  const filteredBooks = books.filter(book => {
-    const matchesSearch = book.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesAuthor = authorFilter === "" || book.author === authorFilter;
-    const matchesLanguage = languageFilter === "" || book.language === languageFilter;
-    return matchesSearch && matchesAuthor && matchesLanguage;
-  });
+  const filteredBooks = useMemo(() => {
+    return books.filter(
+      b =>
+        (author === "all" || b.author === author) &&
+        (language === "all" || b.language === language) &&
+        (b.priceNum <= price)
+    );
+  }, [books, author, language, price]);
+
+  function handleFilterChange(setter) {
+    return e => {
+      setIsFading(true);
+      setTimeout(() => {
+        setter(e.target.value);
+        setIsFading(false);
+      }, 210);
+    };
+  }
+
+  function openModal(book) {
+    setModalBook(book);
+    setModalOpen(true);
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    setModalOpen(false);
+    setTimeout(() => setModalBook(null), 440);
+    document.body.style.overflow = "";
+  }
+
+  React.useEffect(() => {
+    if (!isModalOpen) return;
+    const handler = e => e.key === "Escape" && closeModal();
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [isModalOpen]);
+
+  React.useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  function handleAddToCart(book) {
+    alert(`Added "${book.title}" to cart!`);
+  }
 
   return (
     <>
       <Header />
-
-      <div className="search-container">
-        <input
-          type="text"
-          id="searchBar"
-          placeholder="Search for a book..."
-          value={searchTerm}
-          onChange={handleSearch}
-        />
-      </div>
-
-      <h2>Explore Our Comic Book Categories</h2>
-
-      <div className="filter-container">
-        <select id="authorFilter" value={authorFilter} onChange={handleFilter}>
-          <option value="">Filter by Author</option>
-          <option value="Tsutomu Nihei">Tsutomu Nihei</option>
-          <option value="Marjorie Liu">Marjorie Liu</option>
-          <option value="Chris Claremont">Chris Claremont</option>
-        </select>
-
-        <select id="languageFilter" value={languageFilter} onChange={handleFilter}>
-          <option value="">Filter by Language</option>
-          <option value="English">English</option>
-          <option value="Japanese">Japanese</option>
-        </select>
-      </div>
-
-      <div className="category-section">
-        <div className="category-title">Top Read Comics</div>
-        <div className="carousel-container">
-          {books.slice(0, 5).map((book, index) => (
-            <div className="carousel-item" key={index}>
-              <a href="#">
-                <img src={book.image} alt={book.title} />
-              </a>
-              <h3>{book.title}</h3>
+      <div className="category-container">
+        <h1 className="stylish-title">
+          <span className="title-accent">Children's</span> Books
+        </h1>
+        {/* Filters */}
+        <section className="filter-section">
+          <div className="filter-group">
+            <label className="filter-label" htmlFor="filter-author">Author</label>
+            <select
+              className="filter-select"
+              id="filter-author"
+              value={author}
+              onChange={handleFilterChange(setAuthor)}
+            >
+              {authorOptions.map(opt => (
+                <option key={opt} value={opt === "All Authors" ? "all" : opt}>{opt}</option>
+              ))}
+            </select>
+          </div>
+          <div className="filter-group">
+            <label className="filter-label" htmlFor="filter-language">Language</label>
+            <select
+              className="filter-select"
+              id="filter-language"
+              value={language}
+              onChange={handleFilterChange(setLanguage)}
+            >
+              {languageOptions.map(opt => (
+                <option key={opt} value={opt === "All Languages" ? "all" : opt}>{opt}</option>
+              ))}
+            </select>
+          </div>
+          <div className="filter-group">
+            <label className="filter-label" htmlFor="filter-price">Price up to</label>
+            <input
+              type="range"
+              className="filter-range"
+              id="filter-price"
+              min={minPrice}
+              max={maxPrice}
+              step="0.01"
+              value={price}
+              onChange={e => setPrice(Number(e.target.value))}
+            />
+            <div className="price-range-values">
+              <span>${minPrice.toFixed(2)}</span>
+              <span>${price.toFixed(2)}</span>
+              <span>${maxPrice.toFixed(2)}</span>
             </div>
-          ))}
-        </div>
+          </div>
+        </section>
+
+        {/* Book Grid */}
+        <main>
+          <div className={`book-grid${isFading ? " fade-exit" : ""}`}>
+            {filteredBooks.map((book, idx) => (
+              <div
+                key={book.title + idx}
+                className="book-card"
+                style={{ animationDelay: `${0.045 * idx + 0.09}s` }}
+              >
+                <div className="book-image-box">
+                  <img src={book.image} alt={`${book.title} cover`} />
+                </div>
+                <div className="book-card-content">
+                  <div className="book-title">{book.title}</div>
+                  <div className="book-author">{book.author}</div>
+                  <div className="book-price">{book.price}</div>
+                  <div className="card-btn-group">
+                    <button className="btn secondary btn-view-details" onClick={() => openModal(book)}>
+                      View Details
+                    </button>
+                    <button className="btn btn-add-cart" onClick={() => handleAddToCart(book)}>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
       </div>
 
-      <div className="category-section">
-        <div className="category-title">All Children’s Comics</div>
-        <div className="books-grid">
-          {filteredBooks.map((book, index) => (
-            <div className="book-item" key={index}>
-              <img src={book.image} alt={book.title} />
-              <h3 style={{ textAlign: "center", padding: "10px" }}>{book.title}</h3>
-            </div>
-          ))}
-        </div>
+      {/* Modal Backdrop */}
+      <div
+        className={`modal-blur-bg${isModalOpen ? " active" : ""}`}
+        onClick={closeModal}
+        style={{ cursor: isModalOpen ? "pointer" : "default" }}
+        aria-hidden={!isModalOpen}
+      />
+      {/* Modal Content */}
+      <div className={`modal-popup${isModalOpen ? " active" : ""}`}>
+        <button className="modal-close" onClick={closeModal}>&times;</button>
+        {modalBook && (
+          <div className="modal-content">
+            <img src={modalBook.image} alt={modalBook.title} />
+            <h2>{modalBook.title}</h2>
+            <p><strong>Author:</strong> {modalBook.author}</p>
+            <p><strong>Language:</strong> {modalBook.language}</p>
+            <p><strong>Price:</strong> {modalBook.price}</p>
+            <p>{modalBook.details}</p>
+          </div>
+        )}
       </div>
       <Footer />
     </>
   );
-};
-
-export default Children;
+}
