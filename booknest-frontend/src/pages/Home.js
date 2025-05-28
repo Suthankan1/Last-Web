@@ -1,6 +1,9 @@
 // Home.js
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // ← Added
 import '../styles/Home.css';
+import Header from './Header';
+import Footer from './Footer'
 
 function Home() {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -11,24 +14,9 @@ function Home() {
 
   return (
     <>
-      <header>
-        <h1>BookNest</h1>
-        <nav>
-          <a href="#" className="menu-link">Home</a>
-          <div className="dropdown">
-            <a href="#" id="categoryToggle" className="menu-link">Categories</a>
-            <div className="dropdown-content" id="categoryDropdown">
-              <a href="#">Top Category</a>
-              <a href="#">Fiction</a>
-              <a href="#">Non-Fiction</a>
-              <a href="#">Children</a>
-            </div>
-          </div>
-          <a href="#" className="menu-link">Top Picks</a>
-          <a href="#" className="menu-link">Contact</a>
-          <a href="#" className="menu-link">My Books</a>
-        </nav>
-      </header>
+      <Header />
+
+      {/* rest of your content remains unchanged */}
 
       <div className="hero">
         <div className="hero-content">
@@ -72,7 +60,7 @@ function Home() {
         </div>
       </div>
 
-      <footer className="footer">© 2025 BookNest. All rights reserved.</footer>
+      <Footer />
     </>
   );
 }
