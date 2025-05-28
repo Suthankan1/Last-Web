@@ -2,7 +2,7 @@
   "name": "booknest-frontend",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://suthankan1.github.io/Last-Web/booknest-frontend/",
+  "homepage": "https://suthankan1.github.io/Last-Web",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
