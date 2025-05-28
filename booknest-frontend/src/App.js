@@ -10,6 +10,10 @@ import Children from './pages/Children';
 import TopPicks from './pages/TopPicks';
 import Contact from './pages/Contact';
 import MyBooks from './pages/MyBooks';
+import FAQ from './pages/FAQ';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import HelpCenter from './pages/HelpCenter';
+import TermsOfService from './pages/TermsOfService';
 
 import SignIn from './pages/Signin';
 import SignUp from './pages/Signup';
@@ -30,6 +34,11 @@ function App() {
         <Route path="/top-picks" element={<TopPicks />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/my-books" element={<MyBooks />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/help-center" element={<HelpCenter />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+ 
 
         {/* Authentication routes */}
         <Route path="/signin" element={<SignIn />} />
