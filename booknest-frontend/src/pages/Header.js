@@ -2,10 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 
+
 const Header = () => {
   return (
     <header>
-      <h1><Link to="/" className="logo-link">BookNest</Link></h1>
+      <h1>
+        <Link to="/" className="logo-link">
+        <img src="/assets/logo.png" alt="BookNest Logo" className="logo-img" />
+        </Link>
+      </h1>
+
       <nav>
         <Link to="/" className="menu-link">Home</Link>
 

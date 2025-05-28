@@ -8,20 +8,32 @@ header {
   align-items: center;
   position: sticky;
   top: 0;
+  height: 80px;
   z-index: 100;
 }
 
+/* Logo & Site Title */
 .logo-link {
+  display: flex;
+  align-items: center;
   color: #e50914;
   text-decoration: none;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-header h1 .logo-link:hover {
-  color:burlywood;
+.logo-link:hover {
+  color: burlywood;
 }
 
+.logo-img {
+  height: 160px; /* Adjust this value to make it larger/smaller */
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+/* Navigation */
 nav {
   display: flex;
   align-items: center;
@@ -34,6 +46,7 @@ nav a {
   font-weight: 500;
 }
 
+/* Dropdown */
 .dropdown {
   position: relative;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -82,4 +95,25 @@ nav a {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .logo-img {
+    height: 30px;
+  }
+
+  .logo-link {
+    font-size: 22px;
+  }
+
+  nav a {
+    margin-left: 10px;
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .dropdown-content {
+    min-width: 150px;
+  }
 }
