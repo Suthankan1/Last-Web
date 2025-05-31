@@ -243,6 +243,12 @@ nav a {
   border-radius: 5px;
   border: none;
   font-size: 16px;
+  color: #000;
+  background-color: #fff;
+}
+
+.auth-form input::placeholder {
+  color: #888;
 }
 
 .auth-links {
@@ -277,14 +283,12 @@ nav a {
   }
 }
 
-/* Home.css */
-
 /* Container to center the form vertically and horizontally */
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh; /* Adjust as needed */
+  min-height: 80vh;
   padding: 20px;
   background-color: #f5f5f5;
 }
@@ -321,12 +325,20 @@ nav a {
   font-size: 16px;
   transition: border-color 0.3s ease;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000;
+  background-color: #fff;
+}
+
+.auth-form input[type="text"]::placeholder,
+.auth-form input[type="email"]::placeholder,
+.auth-form input[type="password"]::placeholder {
+  color: #888;
 }
 
 .auth-form input[type="text"]:focus,
 .auth-form input[type="email"]:focus,
 .auth-form input[type="password"]:focus {
-  border-color: #e50914; /* matching your header color */
+  border-color: #e50914;
   outline: none;
 }
 
@@ -368,4 +380,3 @@ nav a {
 .auth-switch a:hover {
   text-decoration: underline;
 }
-

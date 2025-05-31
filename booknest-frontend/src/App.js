@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Make sure each of these is a default export from its file!
 import Home from './pages/Home';
 import Categories from './pages/Categories';
 import TopCategory from './pages/TopCategory';
@@ -36,10 +37,12 @@ function App() {
         <Route path="/top-picks" element={<TopPicks />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/my-books" element={<MyBooks />} />
+
         <Route path="/faq" element={<FAQ />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/help-center" element={<HelpCenter />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+
         <Route path="/cart" element={<Cart />} />
 
         <Route path="/signin" element={<SignIn />} />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Home.css'; // Use your shared styles here
+import '../styles/Home.css'; // Shared styles
 import Header from './Header';
 import Footer from './Footer';
 
@@ -32,13 +32,12 @@ function Signin() {
     }
 
     const payload = {
-      email: formData.email.trim(),
+      username: formData.email.trim(), // Assuming backend expects "username" for email
       password: formData.password,
     };
 
     try {
-      // Replace with your backend signin API endpoint
-      const response = await fetch('http://localhost:5000/api/signin', {
+      const response = await fetch('http://localhost:5000/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -49,10 +48,15 @@ function Signin() {
       if (response.ok) {
         setMessage('Login successful! Redirecting...');
         setMessageColor('green');
-        // You can redirect user or store token here
-        // For example:
-        // localStorage.setItem('token', data.token);
-        // window.location.href = '/dashboard';
+
+        // Save token and user info
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+
+        // Redirect after short delay
+        setTimeout(() => {
+          window.location.href = '/dashboard';
+        }, 1500);
       } else {
         setMessage(data.message || 'Login failed. Please try again.');
         setMessageColor('red');
