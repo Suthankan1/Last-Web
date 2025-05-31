@@ -32,7 +32,7 @@ function Signin() {
     }
 
     const payload = {
-      username: formData.email.trim(), // Assuming backend expects "username" for email
+      email: formData.email.trim(), // Changed from username to email
       password: formData.password,
     };
 
