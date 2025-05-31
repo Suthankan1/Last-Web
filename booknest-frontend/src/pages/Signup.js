@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import '../styles/Home.css'; // Use the styles I gave you earlier
-import Header from './Header';  // Import Header component
-import Footer from './Footer';  // Import Footer component
+import { Link } from 'react-router-dom';
+import '../styles/Home.css';
+import Header from './Header';
+import Footer from './Footer';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -27,11 +28,13 @@ function Signup() {
       setMessageColor('red');
       return;
     }
+
     if (!/\S+@\S+\.\S+/.test(formData.email)) {
       setMessage('Please enter a valid email.');
       setMessageColor('red');
       return;
     }
+
     if (formData.password !== formData.cpassword) {
       setMessage('Passwords do not match.');
       setMessageColor('red');
@@ -76,7 +79,7 @@ function Signup() {
 
   return (
     <div className="page-container">
-      <Header /> {/* HEADER at the top */}
+      <Header />
 
       <div className="auth-container">
         <form className="auth-form" onSubmit={handleSubmit}>
@@ -119,7 +122,12 @@ function Signup() {
             required
           />
 
-          <select name="user_type" value={formData.user_type} onChange={handleChange} className="box">
+          <select
+            name="user_type"
+            value={formData.user_type}
+            onChange={handleChange}
+            className="box"
+          >
             <option value="user">User</option>
             <option value="admin">Admin</option>
           </select>
@@ -127,12 +135,12 @@ function Signup() {
           <button type="submit">Register Now</button>
 
           <p className="auth-switch">
-            Already have an account? <a href="/signin">Login now</a>
+            Already have an account? <Link to="/signin">Login now</Link>
           </p>
         </form>
       </div>
 
-      <Footer /> {/* FOOTER at the bottom */}
+      <Footer />
     </div>
   );
 }
