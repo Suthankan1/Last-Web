@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "firebase": "^11.8.1",
     "framer-motion": "^12.15.0",
     "lucide-react": "^0.511.0",

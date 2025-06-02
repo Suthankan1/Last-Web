@@ -20,6 +20,12 @@ function Signup() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  // No password validation on the frontend in this insecure version
+  // const isPasswordValid = (password) => {
+  //   const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+  //   return regex.test(password);
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -44,7 +50,7 @@ function Signup() {
     const payload = {
       name: formData.name.trim(),
       email: formData.email.trim(),
-      password: formData.password,
+      password: formData.password, // Sending plain-text password
       user_type: formData.user_type,
     };
 
