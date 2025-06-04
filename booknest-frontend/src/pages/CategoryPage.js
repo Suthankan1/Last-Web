@@ -28,17 +28,15 @@ export default function CategoryPage({ category }) {
     async function fetchBooks() {
       try {
         const res = await axios.get(`/api/books/category/${category}`);
-
         const booksWithPriceNum = res.data.map(b => ({
           ...b,
-          priceNum: typeof b.price === "number"
-            ? b.price
-            : Number(String(b.price).replace(/[^0-9.-]+/g, "")) || 0
+          priceNum:
+            typeof b.price === "number"
+              ? b.price
+              : Number(String(b.price).replace(/[^0-9.-]+/g, "")) || 0
         }));
-
         setBooks(booksWithPriceNum);
-
-        const [min, max] = getPriceRange(booksWithPriceNum);
+        const [_, max] = getPriceRange(booksWithPriceNum);
         setPrice(max);
       } catch (err) {
         console.error("Failed to fetch books", err);
@@ -212,7 +210,9 @@ export default function CategoryPage({ category }) {
             <p><strong>Author:</strong> {modalBook.author}</p>
             <p><strong>Language:</strong> {modalBook.language}</p>
             <p><strong>Price:</strong> ${modalBook.priceNum.toFixed(2)}</p>
-            <p>{modalBook.description || modalBook.details || "No description available."}</p>
+            <p style={{ whiteSpace: "pre-line" }}>
+              {modalBook.description || modalBook.details || "No description available."}
+            </p>
           </div>
         )}
       </div>
