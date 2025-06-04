@@ -72,8 +72,8 @@ exports.login = async (req, res) => {
     }
 
     console.log(`Login attempt for email: ${email}`);
-    console.log(`Received password: ${password}`);
-    console.log(`Stored password: ${user.password}`);
+    console.log(`Received password: ${password.replace(/.(?=.{2})/g, '*')}`);
+    console.log(`Stored password: ${user.password.replace(/.(?=.{2})/g, '*')}`);
     console.log(`Expected user_type: ${requiredUserType}`);
     console.log(`Actual user_type in DB: ${user.user_type}`);
 
