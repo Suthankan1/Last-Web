@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css'; // Optional: if you have global styles
-import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
+import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import { AdminAuthProvider } from './admin/context/AdminAuthContext'; // Correctly imported as a named export
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* Wrap the App component with BrowserRouter */}
     <BrowserRouter>
-      <App />
+      <AdminAuthProvider>
+        <App />
+      </AdminAuthProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

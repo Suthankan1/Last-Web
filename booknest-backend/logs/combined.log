@@ -24,3 +24,29 @@
 {"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-03 02:29:51"}
 {"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-03 02:34:46"}
 {"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-03 02:34:46"}
+<<<<<<< HEAD
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-03 03:31:47"}
+{"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-03 03:31:47"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-03 16:41:07"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-03 16:41:27"}
+{"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-03 16:41:27"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-04 11:31:05"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-04 11:31:14"}
+{"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-04 11:31:14"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-04 11:51:30"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-04 11:51:39"}
+{"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-04 11:51:39"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-04 11:54:08"}
+{"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-04 11:54:08"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-04 11:58:29"}
+{"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-04 11:58:29"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-04 12:03:17"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-04 12:03:25"}
+{"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-04 12:03:25"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-04 12:33:22"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-04 12:33:34"}
+{"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-04 12:33:34"}
+=======
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-03 03:11:39"}
+{"level":"info","message":"🚀 Server running on http://localhost:5000","timestamp":"2025-06-03 03:11:39"}
+>>>>>>> bf605a15a6d94f80e2134436ce7cbb0fb2a8c031
