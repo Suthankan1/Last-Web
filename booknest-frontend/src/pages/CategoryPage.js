@@ -24,19 +24,25 @@ export default function CategoryPage({ category }) {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isFading, setIsFading] = useState(false);
 
-  // Fetch books by category from backend
   useEffect(() => {
     async function fetchBooks() {
       try {
         const res = await axios.get(`/api/books/category/${category}`);
-        // assuming backend sends array of books with price as string like "$7.99", convert to number for filtering
+
         const booksWithPriceNum = res.data.map(b => ({
           ...b,
-          priceNum: Number(b.price.replace(/[^0-9.-]+/g,"")) || 0
+          priceNum:
+            typeof b.price === "string"
+              ? Number(b.price.replace(/[^0-9.-]+/g, ""))
+              : typeof b.price === "number"
+              ? b.price
+              : 0
         }));
+
         setBooks(booksWithPriceNum);
+
         const [min, max] = getPriceRange(booksWithPriceNum);
-        setPrice(max); // start price filter at max
+        setPrice(max);
       } catch (err) {
         console.error("Failed to fetch books", err);
       }
@@ -45,13 +51,15 @@ export default function CategoryPage({ category }) {
   }, [category]);
 
   const authorOptions = useMemo(
-    () => ["All Authors", ...Array.from(new Set(books.map(b => b.author)))],
+    () => ["all", ...Array.from(new Set(books.map(b => b.author || "Unknown")))],
     [books]
   );
+
   const languageOptions = useMemo(
-    () => ["All Languages", ...Array.from(new Set(books.map(b => b.language)))],
+    () => ["all", ...Array.from(new Set(books.map(b => b.language || "Unknown")))],
     [books]
   );
+
   const [minPrice, maxPrice] = useMemo(() => getPriceRange(books), [books]);
 
   const filteredBooks = useMemo(() => {
@@ -85,14 +93,14 @@ export default function CategoryPage({ category }) {
     document.body.style.overflow = "";
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isModalOpen) return;
     const handler = e => e.key === "Escape" && closeModal();
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, [isModalOpen]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       document.body.style.overflow = "";
     };
@@ -107,41 +115,40 @@ export default function CategoryPage({ category }) {
       <Header />
       <div className="category-container">
         <h1 className="stylish-title">
-          <span className="title-accent">{category.charAt(0).toUpperCase() + category.slice(1)}</span> Books
+          <span className="title-accent">
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </span>{" "}
+          Books
         </h1>
+
         {/* Filters */}
         <section className="filter-section">
           <div className="filter-group">
-            <label className="filter-label" htmlFor="filter-author">Author</label>
-            <select
-              className="filter-select"
-              id="filter-author"
-              value={author}
-              onChange={handleFilterChange(setAuthor)}
-            >
+            <label htmlFor="filter-author">Author</label>
+            <select id="filter-author" value={author} onChange={handleFilterChange(setAuthor)}>
               {authorOptions.map(opt => (
-                <option key={opt} value={opt === "All Authors" ? "all" : opt}>{opt}</option>
+                <option key={opt} value={opt}>
+                  {opt === "all" ? "All Authors" : opt}
+                </option>
               ))}
             </select>
           </div>
+
           <div className="filter-group">
-            <label className="filter-label" htmlFor="filter-language">Language</label>
-            <select
-              className="filter-select"
-              id="filter-language"
-              value={language}
-              onChange={handleFilterChange(setLanguage)}
-            >
+            <label htmlFor="filter-language">Language</label>
+            <select id="filter-language" value={language} onChange={handleFilterChange(setLanguage)}>
               {languageOptions.map(opt => (
-                <option key={opt} value={opt === "All Languages" ? "all" : opt}>{opt}</option>
+                <option key={opt} value={opt}>
+                  {opt === "all" ? "All Languages" : opt}
+                </option>
               ))}
             </select>
           </div>
+
           <div className="filter-group">
-            <label className="filter-label" htmlFor="filter-price">Price up to</label>
+            <label htmlFor="filter-price">Price up to</label>
             <input
               type="range"
-              className="filter-range"
               id="filter-price"
               min={minPrice}
               max={maxPrice}
@@ -162,12 +169,12 @@ export default function CategoryPage({ category }) {
           <div className={`book-grid${isFading ? " fade-exit" : ""}`}>
             {filteredBooks.map((book, idx) => (
               <div
-                key={book._id || (book.title + idx)}
+                key={book._id || `${book.title}-${idx}`}
                 className="book-card"
                 style={{ animationDelay: `${0.045 * idx + 0.09}s` }}
               >
                 <div className="book-image-box">
-                  <img src={book.image} alt={`${book.title} cover`} />
+                  <img src={book.image || "/default-book.png"} alt={`${book.title} cover`} />
                 </div>
                 <div className="book-card-content">
                   <div className="book-title">{book.title}</div>
@@ -195,17 +202,20 @@ export default function CategoryPage({ category }) {
         style={{ cursor: isModalOpen ? "pointer" : "default" }}
         aria-hidden={!isModalOpen}
       />
+
       {/* Modal Content */}
       <div className={`modal-popup${isModalOpen ? " active" : ""}`}>
-        <button className="modal-close" onClick={closeModal}>&times;</button>
+        <button className="modal-close" onClick={closeModal}>
+          &times;
+        </button>
         {modalBook && (
           <div className="modal-content">
-            <img src={modalBook.image} alt={modalBook.title} />
+            <img src={modalBook.image || "/default-book.png"} alt={modalBook.title} />
             <h2>{modalBook.title}</h2>
             <p><strong>Author:</strong> {modalBook.author}</p>
             <p><strong>Language:</strong> {modalBook.language}</p>
             <p><strong>Price:</strong> ${modalBook.priceNum.toFixed(2)}</p>
-            <p>{modalBook.description || modalBook.details}</p>
+            <p>{modalBook.description || modalBook.details || "No description available."}</p>
           </div>
         )}
       </div>

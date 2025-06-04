@@ -3,39 +3,29 @@ require('dotenv').config(); // Load environment variables from .env file
 
 /**
  * Middleware to authenticate JWT tokens.
- * This function checks if a valid JWT is present in the request header
- * and verifies it against the JWT_SECRET. If valid, it decodes the token
- * and attaches the user payload to the request object.
- *
- * @param {Object} req - The Express request object.
- * @param {Object} res - The Express response object.
- * @param {Function} next - The next middleware function in the stack.
+ * Checks for a valid JWT in the Authorization header and verifies it.
+ * Attaches the decoded user payload to `req.user` if valid.
  */
 function authenticateToken(req, res, next) {
-  // Get the authorization header from the request
   const authHeader = req.headers['authorization'];
-  // Extract the token from the "Bearer TOKEN" format
-  const token = authHeader && authHeader.split(' ')[1];
 
-  // If no token is provided, deny access
-  if (!token) {
-    console.log('Authentication failed: No token provided.');
+  // Check for the "Bearer TOKEN" format
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    console.warn('Access denied: No token provided.');
     return res.status(401).json({ message: 'Access denied. No token provided.' });
   }
 
-  // Verify the token using the JWT_SECRET from environment variables
+  const token = authHeader.split(' ')[1];
+
   try {
-    // jwt.verify decodes the token if it's valid and throws an error if not
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    // Attach the decoded user payload to the request object
-    // This makes user information available to subsequent route handlers
+
+    // Attach user payload to the request for use in routes
     req.user = decoded;
-    // Proceed to the next middleware or route handler
     next();
   } catch (err) {
-    // If token verification fails (e.g., token is expired or invalid signature)
-    console.error('Authentication failed: Invalid token', err);
-    res.status(403).json({ message: 'Invalid token' });
+    console.error('Invalid or expired token:', err.message);
+    return res.status(403).json({ message: 'Invalid or expired token' });
   }
 }
 
