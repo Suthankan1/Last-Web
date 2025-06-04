@@ -31,12 +31,9 @@ export default function CategoryPage({ category }) {
 
         const booksWithPriceNum = res.data.map(b => ({
           ...b,
-          priceNum:
-            typeof b.price === "string"
-              ? Number(b.price.replace(/[^0-9.-]+/g, ""))
-              : typeof b.price === "number"
-              ? b.price
-              : 0
+          priceNum: typeof b.price === "number"
+            ? b.price
+            : Number(String(b.price).replace(/[^0-9.-]+/g, "")) || 0
         }));
 
         setBooks(booksWithPriceNum);
