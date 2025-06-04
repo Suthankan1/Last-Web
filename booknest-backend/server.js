@@ -6,6 +6,7 @@ require('dotenv').config(); // Load environment variables from .env file
 
 // Import your authentication routes
 const authRoutes = require('./routes/authRoutes');
+const bookRoutes = require('./routes/bookRoutes');
 
 // Initialize the Express application
 const app = express();
@@ -55,6 +56,8 @@ app.use(express.json());
 // Mount the authentication routes under the '/api' prefix.
 // All routes defined in authRoutes.js will be prefixed with '/api' (e.g., /api/signup, /api/login).
 app.use('/api', authRoutes);
+app.use('/api/books', bookRoutes);
+
 
 // --- Global Error Handling Middleware ---
 // This middleware catches any errors that occur during request processing

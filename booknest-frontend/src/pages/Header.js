@@ -2,13 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 
-
 const Header = () => {
   return (
     <header>
       <h1>
         <Link to="/" className="logo-link">
-        <img src="/assets/logo.png" alt="BookNest Logo" className="logo-img" />
+          <img src="/assets/logo.png" alt="BookNest Logo" className="logo-img" />
         </Link>
       </h1>
 
@@ -22,7 +21,6 @@ const Header = () => {
             <Link to="/categories/fiction">Fiction</Link>
             <Link to="/categories/non-fiction">Non-Fiction</Link>
             <Link to="/categories/children">Children</Link>
-
           </div>
         </div>
 
@@ -31,7 +29,10 @@ const Header = () => {
         <Link to="/my-books" className="menu-link">My Books</Link>
         <Link to="/cart" className="menu-link">Cart</Link>
 
-        {/*Optional: add auth links here if you want */}
+        {/* Admin Panel Link */}
+        <Link to="/admin/dashboard" className="menu-link admin-link">Admin Panel</Link>
+
+        {/* Optional: add auth links here if you want */}
         <Link to="/signup" className="menu-link">Account</Link>
       </nav>
     </header>

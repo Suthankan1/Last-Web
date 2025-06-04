@@ -1,0 +1,157 @@
+/* Sign.css - Premium, Elegant & Modern */
+
+/* Container aligns with Home.css style */
+.auth-container {
+  max-width: 420px;
+  margin: 50px auto;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  color: #f0f4f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Shared form styles */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem 1.75rem;
+  border-radius: 16px;
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.12);
+}
+
+/* Heading */
+.auth-form h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+  color: #e0e7ff;
+  font-weight: 700;
+  text-shadow: 0 0 10px #a0b8ffaa;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+/* Input and select */
+.auth-form input,
+.auth-form select {
+  padding: 0.85rem 1rem;
+  font-size: 1.1rem;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #111;
+  font-weight: 600;
+  transition: all 0.35s ease;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15) inset;
+  user-select: text;
+}
+
+/* Placeholder and option styling */
+.auth-form input::placeholder,
+.auth-form select option {
+  color: #b0b8c1;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* On focus */
+.auth-form input:focus,
+.auth-form select:focus {
+  border-color: #80aaff;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 0 15px #80aaff88;
+  outline: none;
+}
+
+/* User type dropdown wrapper */
+.user-typeStyle {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: center; /* center select */
+}
+
+/* Centered user type select with crisp black bold text */
+.user-typeStyle select {
+  color: #000000;
+  font-weight: 700;
+  width: 65%;
+  background: #fff;
+  border: 2px solid #80aaff;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  font-size: 1.1rem;
+  box-shadow: 0 3px 12px rgba(128, 170, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.user-typeStyle select:focus {
+  border-color: #3f6fff;
+  box-shadow: 0 0 18px #3f6fffcc;
+  outline: none;
+}
+
+/* Button */
+.auth-form button {
+  padding: 0.85rem;
+  font-size: 1.15rem;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #4e54c8, #8f94fb);
+  color: #f9fbff;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition: background 0.4s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 22px rgba(79, 90, 221, 0.75);
+  user-select: none;
+}
+
+.auth-form button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #8f94fb, #4e54c8);
+  box-shadow: 0 8px 28px rgba(143, 148, 251, 0.85);
+}
+
+.auth-form button:disabled {
+  background-color: #999bbf;
+  cursor: not-allowed;
+  box-shadow: none;
+  color: #eceefb;
+}
+
+/* Switch between login/signup */
+.auth-switch {
+  text-align: center;
+  font-size: 1rem;
+  color: #a5b8ff;
+  margin-top: 0.75rem;
+  user-select: none;
+}
+
+.auth-switch a {
+  color: #8f94fb;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.auth-switch a:hover {
+  color: #4e54c8;
+  text-decoration: underline;
+}
+
+/* Message feedback */
+.auth-form p {
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 700;
+  color: #c3d0ff;
+  text-shadow: 0 0 5px rgba(143, 148, 251, 0.7);
+  user-select: none;
+}
