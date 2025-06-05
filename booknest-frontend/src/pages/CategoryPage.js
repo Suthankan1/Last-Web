@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import Header from "./Header";
 import Footer from "./Footer";
-import "../styles/Category.css";
+import "../styles/Category.css"; // CSS Link
 
 function getPriceRange(books) {
   if (!books.length) return [0, 0];
@@ -30,10 +30,9 @@ export default function CategoryPage({ category }) {
         const res = await axios.get(`/api/books/category/${category}`);
         const booksWithPriceNum = res.data.map(b => ({
           ...b,
-          priceNum:
-            typeof b.price === "number"
-              ? b.price
-              : Number(String(b.price).replace(/[^0-9.-]+/g, "")) || 0
+          priceNum: typeof b.price === "number"
+            ? b.price
+            : Number(String(b.price).replace(/[^0-9.-]+/g, "")) || 0
         }));
         setBooks(booksWithPriceNum);
         const [_, max] = getPriceRange(booksWithPriceNum);
@@ -67,12 +66,10 @@ export default function CategoryPage({ category }) {
   }, [books, author, language, price]);
 
   function handleFilterChange(setter) {
-    return e => {
-      setIsFading(true);
-      setTimeout(() => {
-        setter(e.target.value);
-        setIsFading(false);
-      }, 210);
+    return (e) => {
+      setter(e.target.value);  // ✅ Instant Update
+      setIsFading(true);       // Optional fade animation
+      setTimeout(() => setIsFading(false), 300);
     };
   }
 
@@ -110,17 +107,19 @@ export default function CategoryPage({ category }) {
       <Header />
       <div className="category-container">
         <h1 className="stylish-title">
-          <span className="title-accent">
-            {category.charAt(0).toUpperCase() + category.slice(1)}
-          </span>{" "}
-          Books
+          {`${category.toUpperCase()} BOOKS`}
         </h1>
 
         {/* Filters */}
         <section className="filter-section">
           <div className="filter-group">
-            <label htmlFor="filter-author">Author</label>
-            <select id="filter-author" value={author} onChange={handleFilterChange(setAuthor)}>
+            <label htmlFor="filter-author" className="filter-label">Author</label>
+            <select
+              id="filter-author"
+              className="filter-select"
+              value={author}
+              onChange={handleFilterChange(setAuthor)}
+            >
               {authorOptions.map(opt => (
                 <option key={opt} value={opt}>
                   {opt === "all" ? "All Authors" : opt}
@@ -130,8 +129,13 @@ export default function CategoryPage({ category }) {
           </div>
 
           <div className="filter-group">
-            <label htmlFor="filter-language">Language</label>
-            <select id="filter-language" value={language} onChange={handleFilterChange(setLanguage)}>
+            <label htmlFor="filter-language" className="filter-label">Language</label>
+            <select
+              id="filter-language"
+              className="filter-select"
+              value={language}
+              onChange={handleFilterChange(setLanguage)}
+            >
               {languageOptions.map(opt => (
                 <option key={opt} value={opt}>
                   {opt === "all" ? "All Languages" : opt}
@@ -141,15 +145,20 @@ export default function CategoryPage({ category }) {
           </div>
 
           <div className="filter-group">
-            <label htmlFor="filter-price">Price up to</label>
+            <label htmlFor="filter-price" className="filter-label">Price up to</label>
             <input
               type="range"
               id="filter-price"
+              className="filter-range"
               min={minPrice}
               max={maxPrice}
               step="0.01"
               value={price}
-              onChange={e => setPrice(Number(e.target.value))}
+              onChange={(e) => {
+                setPrice(Number(e.target.value));
+                setIsFading(true);
+                setTimeout(() => setIsFading(false), 300);
+              }}
             />
             <div className="price-range-values">
               <span>${minPrice.toFixed(2)}</span>
@@ -162,30 +171,36 @@ export default function CategoryPage({ category }) {
         {/* Book Grid */}
         <main>
           <div className={`book-grid${isFading ? " fade-exit" : ""}`}>
-            {filteredBooks.map((book, idx) => (
-              <div
-                key={book._id || `${book.title}-${idx}`}
-                className="book-card"
-                style={{ animationDelay: `${0.045 * idx + 0.09}s` }}
-              >
-                <div className="book-image-box">
-                  <img src={book.image || "/default-book.png"} alt={`${book.title} cover`} />
-                </div>
-                <div className="book-card-content">
-                  <div className="book-title">{book.title}</div>
-                  <div className="book-author">{book.author}</div>
-                  <div className="book-price">${book.priceNum.toFixed(2)}</div>
-                  <div className="card-btn-group">
-                    <button className="btn secondary btn-view-details" onClick={() => openModal(book)}>
-                      View Details
-                    </button>
-                    <button className="btn btn-add-cart" onClick={() => handleAddToCart(book)}>
-                      Add to Cart
-                    </button>
+            {filteredBooks.length > 0 ? (
+              filteredBooks.map((book, idx) => (
+                <div
+                  key={book._id || `${book.title}-${idx}`}
+                  className="book-card"
+                  style={{ animationDelay: `${0.045 * idx + 0.09}s` }}
+                >
+                  <div className="book-image-box">
+                    <img src={book.image || "/default-book.png"} alt={`${book.title} cover`} />
+                  </div>
+                  <div className="book-card-content">
+                    <div className="book-title">{book.title}</div>
+                    <div className="book-author">{book.author}</div>
+                    <div className="book-price">${book.priceNum.toFixed(2)}</div>
+                    <div className="card-btn-group">
+                      <button className="btn secondary btn-view-details" onClick={() => openModal(book)}>
+                        View Details
+                      </button>
+                      <button className="btn btn-add-cart" onClick={() => handleAddToCart(book)}>
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <p style={{ textAlign: 'center', width: '100%', color: 'gray', marginTop: '2rem' }}>
+                No books found for selected filters.
+              </p>
+            )}
           </div>
         </main>
       </div>
@@ -199,23 +214,29 @@ export default function CategoryPage({ category }) {
       />
 
       {/* Modal Content */}
-      <div className={`modal-popup${isModalOpen ? " active" : ""}`}>
-        <button className="modal-close" onClick={closeModal}>
-          &times;
-        </button>
-        {modalBook && (
-          <div className="modal-content">
-            <img src={modalBook.image || "/default-book.png"} alt={modalBook.title} />
-            <h2>{modalBook.title}</h2>
-            <p><strong>Author:</strong> {modalBook.author}</p>
-            <p><strong>Language:</strong> {modalBook.language}</p>
-            <p><strong>Price:</strong> ${modalBook.priceNum.toFixed(2)}</p>
-            <p style={{ whiteSpace: "pre-line" }}>
-              {modalBook.description || modalBook.details || "No description available."}
-            </p>
+      {modalBook && (
+        <div className={`modal-popup${isModalOpen ? " active" : ""}`} onClick={(e) => e.stopPropagation()}>
+          <button className="modal-close" onClick={closeModal}>
+            &times;
+          </button>
+          <div className="modal-center-content">
+            <img
+              src={modalBook.image || "/default-book.png"}
+              alt={modalBook.title}
+              className="modal-book-img"
+            />
+            <div className="modal-book-details">
+              <h2 className="modal-title">{modalBook.title}</h2>
+              <p className="modal-meta">Author: {modalBook.author}</p>
+              <p className="modal-meta">Language: {modalBook.language}</p>
+              <p className="modal-price">${modalBook.priceNum.toFixed(2)}</p>
+            </div>
           </div>
-        )}
-      </div>
+          <div className="modal-body">
+            {modalBook.description || "No description available."}
+          </div>
+        </div>
+      )}
       <Footer />
     </>
   );

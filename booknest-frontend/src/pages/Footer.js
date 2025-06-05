@@ -17,9 +17,9 @@ const Footer = () => {
           </p>
           <div className="social-buttons">
             {/* Social links can be added here */}
-            <a href="#" className="social-btn" aria-label="Facebook">FB</a>
-            <a href="#" className="social-btn" aria-label="Twitter">TW</a>
-            <a href="#" className="social-btn" aria-label="Instagram">IG</a>
+            <a href="facebook.com" className="social-btn" aria-label="Facebook">FB</a>
+            <a href="x.com" className="social-btn" aria-label="Twitter">TW</a>
+            <a href="instagram.com" className="social-btn" aria-label="Instagram">IG</a>
           </div>
         </div>
 
@@ -52,16 +52,16 @@ const Footer = () => {
             📧 support@booknest.com
           </a>
           <a href="tel:+1234567890" className="contact-info">
-            📞 +1 234 567 890
+            📞 +94 74 104 6208
           </a>
           <div className="contact-address">
-            🏢 123 Book St., Library City, BK 45678
+            🏢 No.41, Moratuwa, Sri Lanka
           </div>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <small>© 2025 BookNest. All rights reserved.</small>
+        <small>© 2025 UOM Fit 23. All rights reserved.</small>
         <div className="footer-bottom-links">
           <button className="footer-bottom-link" type="button">Privacy</button>
           <button className="footer-bottom-link" type="button">Terms</button>
