@@ -75,3 +75,19 @@
 {"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-04 23:05:54"}
 {"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-04 23:05:59"}
 {"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-04 23:05:59"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-05 11:48:41"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-05 11:48:41"}
+{"level":"warn","message":"Unknown route accessed: GET /profile%20pic.jpeg","timestamp":"2025-06-05 11:50:16"}
+{"level":"warn","message":"Unknown route accessed: GET /profile%20pic.jpeg","timestamp":"2025-06-05 11:54:36"}
+{"level":"warn","message":"Unknown route accessed: GET /profile%20pic.jpeg","timestamp":"2025-06-05 11:54:50"}
+{"level":"warn","message":"Unknown route accessed: GET /profile%20pic.jpeg","timestamp":"2025-06-05 11:56:56"}
+{"level":"warn","message":"Unknown route accessed: POST /api/signin","timestamp":"2025-06-05 14:22:57"}
+{"level":"warn","message":"Unknown route accessed: POST /api/signin","timestamp":"2025-06-05 14:23:00"}
+{"level":"warn","message":"Unknown route accessed: POST /api/signin","timestamp":"2025-06-05 14:23:27"}
+{"level":"warn","message":"Unknown route accessed: POST /api/signin","timestamp":"2025-06-05 14:25:24"}
+{"level":"warn","message":"Unknown route accessed: POST /api/signin","timestamp":"2025-06-05 14:25:26"}
+{"level":"warn","message":"Unknown route accessed: POST /api/signin","timestamp":"2025-06-05 14:25:32"}
+{"level":"warn","message":"Unknown route accessed: POST /api/signin","timestamp":"2025-06-05 14:25:33"}
+{"level":"warn","message":"Unknown route accessed: POST /api/signin","timestamp":"2025-06-05 14:25:43"}
+{"level":"warn","message":"Unknown route accessed: GET /profile%20pic.jpeg","timestamp":"2025-06-05 15:15:23"}
+{"level":"warn","message":"Unknown route accessed: GET /profile%20pic.jpeg","timestamp":"2025-06-05 15:16:33"}

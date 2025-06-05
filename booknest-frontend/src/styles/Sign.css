@@ -1,157 +1,126 @@
-/* Sign.css - Premium, Elegant & Modern */
-
-/* Container aligns with Home.css style */
-.auth-container {
-  max-width: 420px;
-  margin: 50px auto;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  padding: 2.5rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-  color: #f0f4f8;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.netflix-auth-bg {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #141414 60%, #1f1f1f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Shared form styles */
-.auth-form {
+.netflix-auth-form {
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.6);
+  padding: 3rem 2.5rem;
+  width: 100%;
+  max-width: 370px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2rem 1.75rem;
-  border-radius: 16px;
-  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.12);
+  gap: 1.3rem;
+  position: relative;
 }
 
-/* Heading */
-.auth-form h2 {
-  text-align: center;
-  font-size: 2.4rem;
-  margin-bottom: 1.2rem;
-  color: #e0e7ff;
+.netflix-title, .netflix-auth-form h2 {
+  color: #fff;
+  font-size: 2.2rem;
   font-weight: 700;
-  text-shadow: 0 0 10px #a0b8ffaa;
-  letter-spacing: 0.03em;
-  user-select: none;
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
 }
 
-/* Input and select */
-.auth-form input,
-.auth-form select {
-  padding: 0.85rem 1rem;
-  font-size: 1.1rem;
-  border: 2px solid transparent;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.15);
-  color: #111;
+.netflix-error, .netflix-message {
+  color: #e50914;
+  background: rgba(255,255,255,0.06);
+  padding: 0.7rem;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: -0.5rem;
   font-weight: 600;
-  transition: all 0.35s ease;
-  box-sizing: border-box;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15) inset;
-  user-select: text;
+  font-size: 0.98em;
 }
 
-/* Placeholder and option styling */
-.auth-form input::placeholder,
-.auth-form select option {
-  color: #b0b8c1;
-  opacity: 0.9;
-  font-weight: 500;
+.netflix-message[style*="green"] {
+  color: #21d07a !important;
+  background: rgba(255,255,255,0.06);
 }
 
-/* On focus */
-.auth-form input:focus,
-.auth-form select:focus {
-  border-color: #80aaff;
-  background: #fff;
-  color: #222;
-  box-shadow: 0 0 15px #80aaff88;
-  outline: none;
-}
-
-/* User type dropdown wrapper */
-.user-typeStyle {
-  margin-top: 0.75rem;
-  display: flex;
-  justify-content: center; /* center select */
-}
-
-/* Centered user type select with crisp black bold text */
-.user-typeStyle select {
-  color: #000000;
-  font-weight: 700;
-  width: 65%;
-  background: #fff;
-  border: 2px solid #80aaff;
-  border-radius: 14px;
-  padding: 0.85rem 1rem;
-  font-size: 1.1rem;
-  box-shadow: 0 3px 12px rgba(128, 170, 255, 0.3);
-  transition: all 0.3s ease;
-}
-
-.user-typeStyle select:focus {
-  border-color: #3f6fff;
-  box-shadow: 0 0 18px #3f6fffcc;
-  outline: none;
-}
-
-/* Button */
-.auth-form button {
-  padding: 0.85rem;
-  font-size: 1.15rem;
+.netflix-input, .netflix-select {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  background: #333;
   border: none;
-  border-radius: 16px;
-  background: linear-gradient(90deg, #4e54c8, #8f94fb);
-  color: #f9fbff;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  outline: none;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.netflix-input:focus, .netflix-select:focus {
+  background: #444;
+  box-shadow: 0 0 0 2px #e50914;
+}
+
+.netflix-select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 49%, #e50914 51%),
+    linear-gradient(135deg, #e50914 51%, transparent 49%);
+  background-position: right 1rem top 50%, right 0.9rem top 50%;
+  background-size: 0.7em 0.7em, 0.7em 0.7em;
+  background-repeat: no-repeat;
   cursor: pointer;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  transition: background 0.4s ease, box-shadow 0.3s ease;
-  box-shadow: 0 6px 22px rgba(79, 90, 221, 0.75);
-  user-select: none;
 }
 
-.auth-form button:hover:not(:disabled) {
-  background: linear-gradient(90deg, #8f94fb, #4e54c8);
-  box-shadow: 0 8px 28px rgba(143, 148, 251, 0.85);
+.netflix-btn, .auth-form button {
+  width: 100%;
+  padding: 0.95rem 0;
+  margin-top: 0.5rem;
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.18rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(229,9,20,0.15);
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
-.auth-form button:disabled {
-  background-color: #999bbf;
-  cursor: not-allowed;
-  box-shadow: none;
-  color: #eceefb;
+.netflix-btn:hover, .netflix-btn:focus,
+.auth-form button:hover, .auth-form button:focus {
+  background: #f6121d;
+  box-shadow: 0 4px 18px 0 rgba(229,9,20,0.25);
 }
 
-/* Switch between login/signup */
-.auth-switch {
+.netflix-switch, .auth-switch {
   text-align: center;
+  margin-top: 1rem;
+  color: #ccc;
   font-size: 1rem;
-  color: #a5b8ff;
-  margin-top: 0.75rem;
-  user-select: none;
 }
 
-.auth-switch a {
-  color: #8f94fb;
+.netflix-link, .auth-switch a {
+  color: #e50914;
   text-decoration: none;
-  font-weight: 700;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  margin-left: 2px;
 }
 
-.auth-switch a:hover {
-  color: #4e54c8;
+.netflix-link:hover, .auth-switch a:hover {
   text-decoration: underline;
 }
 
-/* Message feedback */
-.auth-form p {
-  margin: 0;
-  font-size: 1rem;
-  text-align: center;
-  font-weight: 700;
-  color: #c3d0ff;
-  text-shadow: 0 0 5px rgba(143, 148, 251, 0.7);
-  user-select: none;
+@media (max-width: 480px) {
+  .netflix-auth-form {
+    padding: 2rem 1rem;
+    max-width: 95vw;
+  }
+  .netflix-title, .netflix-auth-form h2 {
+    font-size: 1.5rem;
+  }
 }

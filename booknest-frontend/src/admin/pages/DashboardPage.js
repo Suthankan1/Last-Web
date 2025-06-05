@@ -6,6 +6,9 @@ import '../../styles/AdminDash.css';
 // Import useAdminAuth to access logout functionality and admin user data
 import { useAdminAuth } from '../context/AdminAuthContext';
 import { useNavigate } from 'react-router-dom';
+import Header from '../../pages/Header';
+import Footer from '../../pages/Footer';
+
 
 export default function DashboardPage() {
   // Destructure admin state and logout function from the context
@@ -27,6 +30,10 @@ export default function DashboardPage() {
   };
 
   return (
+            <>
+          <Header />
+
+
     <div className="admin-dashboard-container">
       <header className="admin-dashboard-header">
         {/* Display welcome message using admin's name from context */}
@@ -49,5 +56,8 @@ export default function DashboardPage() {
         */}
       </div>
     </div>
+              <Footer />
+    </>
+
   );
 }

@@ -20,45 +20,50 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400;700&display=swap');
 
-/* Custom Netflix-style Title */
+
 .stylish-title {
-  font-size: 3.7rem;
-  font-family: var(--title-font);
+  text-transform: uppercase; /* ALL CAPS */
+  font-size: 4rem; /* Bigger */
+  font-family: 'Bebas Neue', 'Netflix Sans', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 900;
-  color: var(--text-light);
-  letter-spacing: 2.5px;
-  text-shadow:
-    0 4px 32px #000c,
-    0 1px 2px #e509146b,
-    0 2px 8px #e5091440;
-  margin-bottom: 2.3rem;
-  line-height: 1.03;
-  background: linear-gradient(90deg, #fff 60%, #e50914 99%);
-  background-size: 200% 100%;
-  background-clip: text;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Hot Pink to Orange gradient */
   -webkit-background-clip: text;
-  color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: shine-title 4s linear infinite alternate;
-  position: relative;
-}
-@keyframes shine-title {
-  0% { background-position: 100% 0; }
-  100% { background-position: 0 0; }
-}
-.stylish-title .title-accent {
-  color: var(--netflix-red);
-  background: none;
-  -webkit-text-fill-color: var(--netflix-red);
-  text-shadow: 0 2px 12px #e5091440, 0 1px 1px #fff4;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* subtle shadow */
+  animation: gradientMove 5s infinite alternate;
+  margin-bottom: 2rem;
 }
 
+/* Animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.title-accent {
+  color: inherit;
+  background: inherit;
+  -webkit-background-clip: inherit;
+  -webkit-text-fill-color: inherit;
+}
+
+
+
+/* Category Container */
 .category-container {
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 48px 24px 64px 24px;
 }
 
+/* Filter Section */
 .filter-section {
   background: var(--filter-bg);
   border-radius: var(--border-radius);
@@ -70,11 +75,13 @@
   box-shadow: var(--shadow-dark);
   flex-wrap: wrap;
 }
+
 .filter-group {
   display: flex;
   flex-direction: column;
   min-width: 170px;
 }
+
 .filter-label {
   color: var(--text-muted);
   font-size: 1.08rem;
@@ -82,8 +89,8 @@
   font-weight: 700;
   letter-spacing: 0.3px;
 }
-.filter-select,
-.filter-range {
+
+.filter-select, .filter-range {
   background: var(--card-bg);
   color: var(--text-light);
   border: none;
@@ -94,16 +101,18 @@
   outline: none;
   transition: background var(--transition-fast);
 }
-.filter-select:focus,
-.filter-range:focus {
+
+.filter-select:focus, .filter-range:focus {
   background: var(--card-hover-bg);
   border: 1px solid var(--netflix-red);
 }
+
 .filter-range {
   width: 180px;
   accent-color: var(--netflix-red);
   margin-top: 2px;
 }
+
 .price-range-values {
   display: flex;
   justify-content: space-between;
@@ -113,7 +122,7 @@
   letter-spacing: 0.2px;
 }
 
-/* Book Grid: 6 columns, no space between boxes, bigger card width */
+/* Book Grid */
 .book-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -124,6 +133,7 @@
   align-items: stretch;
 }
 
+/* Book Card */
 .book-card {
   position: relative;
   background: var(--card-bg);
@@ -141,9 +151,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 0;
 }
 
+/* Image inside card */
 .book-card .book-image-box {
   width: 100%;
   height: 130px;
@@ -154,22 +164,23 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: box-shadow var(--transition-fast);
   border-bottom: 1.5px solid #232323;
 }
+
 .book-card:hover .book-image-box img {
   transform: scale(1.13) rotate(-1deg);
   filter: brightness(1.07) drop-shadow(0 6px 18px #000c);
 }
+
 .book-image-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
-  display: block;
   transition: transform var(--transition-fast), filter var(--transition-fast);
 }
 
+/* Card Content */
 .book-card-content {
   flex: 1 1 auto;
   display: flex;
@@ -187,8 +198,6 @@
   margin: 0;
   letter-spacing: 0.2px;
   line-height: 1.25em;
-  min-height: 32px;
-  text-shadow: 0 1px 5px #0003;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -209,71 +218,110 @@
   font-weight: 700;
   margin-top: 1px;
   margin-bottom: 4px;
-  text-shadow: 0 1px 4px #0002;
 }
 
-/* Always pin buttons at the bottom */
-.card-btn-group {
-  margin-top: auto;
-  display: flex;
-  gap: 0;
-  justify-content: stretch;
-  flex-wrap: wrap;
-  border-top: 1px solid #232323;
-  padding-top: 0.3rem;
+/* Modal Background */
+.modal-blur-bg {
+  position: fixed;
+  inset: 0;
+  background: var(--blur-bg);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-medium);
+}
+
+.modal-blur-bg.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Modal Popup */
+.modal-popup {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 90vw;
+  max-width: 340px; /* Compact modal */
+  background: var(--modal-bg);
+  border-radius: 18px;
+  box-shadow: 0 4px 48px 0 #000b, 0 2px 30px 0 rgba(229,9,20,0.10);
+  z-index: 101;
+  transform: translate(-50%, 120vh) scale(0.96);
+  opacity: 0;
+  transition: transform var(--transition-medium), opacity var(--transition-medium);
+}
+
+.modal-popup.active {
+  animation: modal-pop-center 0.44s cubic-bezier(.7,0,.3,1) both;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-popup .modal-close {
+  position: absolute;
+  right: 15px;
+  top: 11px;
   background: transparent;
-}
-
-.btn {
-  background: var(--netflix-red);
-  color: var(--text-light);
-  border: none;
-  border-radius: 0 0 0 0;
-  padding: 0.28rem 0.6rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-  outline: none;
-  box-shadow: 0 2px 8px 0 rgba(229,9,20,0.08);
-  letter-spacing: 0.1px;
-  flex: 1 1 50%;
-  min-width: 0;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0 0 0 0;
-}
-.btn.secondary {
-  background: #323232;
   color: #fff;
-  border: 1px solid #444;
-  border-left: none;
+  border: none;
+  font-size: 2.1rem;
+  cursor: pointer;
+  opacity: 0.7;
 }
-.btn:active {
-  transform: scale(0.98);
+
+.modal-popup .modal-book-img {
+  width: 75px;
+  min-width: 75px;
+  aspect-ratio: 2/3;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 22px 0 rgba(0,0,0,0.17);
 }
-.btn.secondary:hover,
-.btn.secondary:focus {
-  background: #232323;
+
+.modal-center-content {
+  display: flex;
+  flex-direction: row;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding: 1.7rem;
+}
+
+.modal-book-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.10rem;
+  flex: 1;
+}
+
+.modal-popup .modal-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-light);
+  margin: 0 0 0.2em 0;
+}
+
+.modal-popup .modal-meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.modal-popup .modal-price {
   color: var(--netflix-red);
-  border-color: var(--netflix-red);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
-/* Animations */
-@keyframes slide-in {
-  from {
-    opacity: 0;
-    transform: translateY(40px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.modal-popup .modal-body {
+  padding: 0 1.7rem 1.5rem 1.7rem;
+  color: var(--text-light);
+  font-size: 1.06rem;
+  line-height: 1.5em;
+  opacity: 0.96;
 }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 1120px) {
   .book-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -294,7 +342,58 @@
     min-width: 160px;
     height: 280px;
   }
-  .filter-section {
-    gap: 1rem;
-  }
+}
+/* Book Card Buttons */
+.card-btn-group {
+  margin-top: auto;
+  display: flex;
+  gap: 0;
+  justify-content: stretch;
+  flex-wrap: wrap;
+  border-top: 1px solid #232323;
+  padding-top: 0.3rem;
+  background: transparent;
+}
+
+/* Button Base */
+.btn {
+  background: var(--netflix-red); /* RED COLOR for Add to Cart */
+  color: var(--text-light); /* White text */
+  border: none;
+  border-radius: 0 0 0 0;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+  flex: 1 1 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  border-right: 1px solid #000; /* small border between two buttons */
+}
+
+/* View Details Button - Secondary */
+.btn.secondary {
+  background: #323232; /* Dark grey */
+  color: #fff;
+  border: none;
+}
+
+/* Hover Effects */
+.btn:hover {
+  background: #d40813; /* Darker red on hover */
+}
+
+.btn.secondary:hover {
+  background: #1f1f1f; /* Slightly darker grey */
+  color: var(--netflix-red); /* Text becomes red */
+}
+
+/* Active (Click) Animation */
+.btn:active {
+  transform: scale(0.97);
 }

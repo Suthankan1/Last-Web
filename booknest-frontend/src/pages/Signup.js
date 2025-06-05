@@ -20,12 +20,6 @@ function Signup() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // No password validation on the frontend in this insecure version
-  // const isPasswordValid = (password) => {
-  //   const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
-  //   return regex.test(password);
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -50,7 +44,7 @@ function Signup() {
     const payload = {
       name: formData.name.trim(),
       email: formData.email.trim(),
-      password: formData.password, // Sending plain-text password
+      password: formData.password,
       user_type: formData.user_type,
     };
 
@@ -84,15 +78,15 @@ function Signup() {
   };
 
   return (
-    <div className="page-container">
+    <>
       <Header />
-
-      <div className="auth-container">
-        <form className="auth-form" onSubmit={handleSubmit}>
-          <h2>Register Now</h2>
-          {message && <p style={{ color: messageColor, fontWeight: 'bold' }}>{message}</p>}
+      <div className="netflix-auth-bg">
+        <form className="netflix-auth-form" onSubmit={handleSubmit}>
+          <h2 className="netflix-title">Register Now</h2>
+          {message && <p className="netflix-message" style={{ color: messageColor }}>{message}</p>}
 
           <input
+            className="netflix-input"
             type="text"
             name="name"
             placeholder="Enter your name"
@@ -102,6 +96,7 @@ function Signup() {
           />
 
           <input
+            className="netflix-input"
             type="email"
             name="email"
             placeholder="Enter your email"
@@ -111,6 +106,7 @@ function Signup() {
           />
 
           <input
+            className="netflix-input"
             type="password"
             name="password"
             placeholder="Enter your password"
@@ -120,6 +116,7 @@ function Signup() {
           />
 
           <input
+            className="netflix-input"
             type="password"
             name="cpassword"
             placeholder="Confirm your password"
@@ -132,22 +129,21 @@ function Signup() {
             name="user_type"
             value={formData.user_type}
             onChange={handleChange}
-            className="box"
+            className="netflix-select"
           >
             <option value="user">User</option>
             <option value="admin">Admin</option>
           </select>
 
-          <button type="submit">Register Now</button>
+          <button className="netflix-btn" type="submit">Register Now</button>
 
-          <p className="auth-switch">
-            Already have an account? <Link to="/signin">Login now</Link>
+          <p className="netflix-switch">
+            Already have an account? <Link to="/signin" className="netflix-link">Login now</Link>
           </p>
         </form>
       </div>
-
       <Footer />
-    </div>
+    </>
   );
 }
 
