@@ -21,6 +21,8 @@ import SignUp from './pages/Signup';
 import Account from './pages/Account';
 import Payment from './pages/Payment';
 import Dashboard from './pages/Dashboard'; // User Dashboard
+import About from './pages/About';
+
 
 // Admin Pages
 // IMPORT CORRECTION: Import the Dashboard from src/admin/components/Dashboard.js
@@ -55,6 +57,7 @@ function App() {
             <Route path="/categories/children" element={<Children />} />
             <Route path="/category/:category" element={<CategoryPage />} />
 
+            <Route path="/about" element={<About />} />
             <Route path="/top-picks" element={<TopPicks />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
