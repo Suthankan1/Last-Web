@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import axios from "axios";
+import axios from "axios"; // Make sure axios is imported
 import Header from "./Header";
 import Footer from "./Footer";
 import "../styles/Category.css"; // CSS Link
@@ -67,8 +67,8 @@ export default function CategoryPage({ category }) {
 
   function handleFilterChange(setter) {
     return (e) => {
-      setter(e.target.value);  // ✅ Instant Update
-      setIsFading(true);       // Optional fade animation
+      setter(e.target.value);    // ✅ Instant Update
+      setIsFading(true);        // Optional fade animation
       setTimeout(() => setIsFading(false), 300);
     };
   }
@@ -98,9 +98,45 @@ export default function CategoryPage({ category }) {
     };
   }, []);
 
-  function handleAddToCart(book) {
-    alert(`Added "${book.title}" to cart!`);
+  // --- START OF UPDATED handleAddToCart FUNCTION ---
+  async function handleAddToCart(book) {
+    try {
+      const token = localStorage.getItem('token'); // Get the user's authentication token
+      if (!token) {
+        alert("Please log in to add books to your cart.");
+        // Optionally redirect to login page
+        // window.location.href = "/login";
+        return;
+      }
+
+      const response = await axios.post("http://localhost:5000/api/cart", { // **Make sure this URL matches your backend!**
+        bookId: book._id, // Assuming your book objects from the API have an _id field
+        title: book.title,
+        author: book.author,
+        price: book.priceNum, // Use priceNum, which is already a number
+        image: book.image,
+      }, {
+        headers: {
+          'Authorization': `Bearer ${token}` // Send the token for authentication
+        }
+      });
+      alert(`"${book.title}" added to your cart successfully!`);
+      console.log('Book added to cart:', response.data);
+    } catch (error) {
+      console.error("Failed to add book to cart:", error.response ? error.response.data : error.message);
+      if (error.response && error.response.status === 400 && error.response.data.msg === 'Book already in cart') {
+        alert(`"${book.title}" is already in your cart.`);
+      } else if (error.response && error.response.status === 401) {
+        alert("You are not authorized. Please log in again.");
+        // Optionally clear token and redirect to login
+        // localStorage.removeItem('token');
+        // window.location.href = "/login";
+      } else {
+        alert(`Failed to add "${book.title}" to cart. Please try again.`);
+      }
+    }
   }
+  // --- END OF UPDATED handleAddToCart FUNCTION ---
 
   return (
     <>

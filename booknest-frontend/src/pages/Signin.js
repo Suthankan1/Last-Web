@@ -25,6 +25,7 @@ function SignIn() {
     setError('');
 
     try {
+      // This API call is correct as per our latest backend configuration
       const response = await fetch('http://localhost:5000/api/login', {
         method: 'POST',
         headers: {
@@ -40,8 +41,8 @@ function SignIn() {
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('token', data.token); // Correctly stores the token
+        localStorage.setItem('user', JSON.stringify(data.user)); // Correctly stores user info
         updateAdminAuthStatus(data.user);
         if (userType === 'admin') {
           navigate('/admin/home');
