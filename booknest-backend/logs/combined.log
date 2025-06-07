@@ -91,3 +91,95 @@
 {"level":"warn","message":"Unknown route accessed: POST /api/signin","timestamp":"2025-06-05 14:25:43"}
 {"level":"warn","message":"Unknown route accessed: GET /profile%20pic.jpeg","timestamp":"2025-06-05 15:15:23"}
 {"level":"warn","message":"Unknown route accessed: GET /profile%20pic.jpeg","timestamp":"2025-06-05 15:16:33"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-05 17:40:14"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-05 17:40:14"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 09:20:59"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 09:20:59"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-07 09:35:45"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 09:35:55"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 09:35:55"}
+{"level":"warn","message":"Unknown route accessed: POST /api/cart","timestamp":"2025-06-07 09:36:31"}
+{"level":"warn","message":"Unknown route accessed: POST /api/cart","timestamp":"2025-06-07 09:36:37"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-07 09:38:45"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 09:38:50"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 09:38:50"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-07 09:53:47"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 09:53:58"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 09:53:58"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-07 09:57:47"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 09:58:01"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 09:58:01"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:38:54"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:38:54"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:38:54"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:43:12"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:43:12"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:43:12"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:43:16"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:43:16"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:43:16"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:47:17"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:47:17"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:47:17"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:47:20"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:47:20"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:47:20"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:52:35"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:52:35"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:52:36"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-07 10:53:26"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 10:53:37"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 10:53:37"}
+{"level":"warn","message":"Unknown route accessed: GET /main.f18ac2643a2a3c33659f.hot-update.json","timestamp":"2025-06-07 10:53:55"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:53:56"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:53:56"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:53:56"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:53:59"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:53:59"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:53:59"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:54:12"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:54:12"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:54:12"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:54:24"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:54:24"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:54:24"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:54:33"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:54:33"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:54:33"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:54:40"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:54:40"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:54:40"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/mastercard-26149.png","timestamp":"2025-06-07 10:55:31"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/visa-logo-png-2029.png","timestamp":"2025-06-07 10:55:31"}
+{"level":"warn","message":"Unknown route accessed: GET /assets/paypal-logo-png-2140.png","timestamp":"2025-06-07 10:55:31"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 11:04:58"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 11:04:58"}
+{"level":"warn","message":"Unknown route accessed: GET /api/auth","timestamp":"2025-06-07 11:12:37"}
+{"level":"warn","message":"Unknown route accessed: GET /api/auth","timestamp":"2025-06-07 11:12:37"}
+{"level":"warn","message":"Unknown route accessed: GET /api/auth","timestamp":"2025-06-07 11:21:48"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 11:22:07"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 11:22:07"}
+{"level":"warn","message":"Unknown route accessed: GET /api/auth","timestamp":"2025-06-07 11:22:28"}
+{"level":"warn","message":"Unknown route accessed: GET /api/auth","timestamp":"2025-06-07 11:22:28"}
+{"level":"warn","message":"Unknown route accessed: GET /api/auth","timestamp":"2025-06-07 11:22:33"}
+{"level":"warn","message":"Unknown route accessed: GET /api/auth","timestamp":"2025-06-07 11:22:33"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-07 11:24:02"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 11:24:12"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 11:24:12"}
+{"level":"warn","message":"Unknown route accessed: POST /api/login","timestamp":"2025-06-07 11:24:55"}
+{"level":"warn","message":"Unknown route accessed: POST /api/login","timestamp":"2025-06-07 11:24:59"}
+{"level":"warn","message":"Unknown route accessed: POST /api/login","timestamp":"2025-06-07 11:25:01"}
+{"level":"warn","message":"Unknown route accessed: POST /api/login","timestamp":"2025-06-07 11:25:08"}
+{"level":"warn","message":"Unknown route accessed: POST /api/login","timestamp":"2025-06-07 11:25:29"}
+{"level":"error","message":"❌ MongoDB connection error: Error: querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {\n  [stack]: [Getter/Setter],\n  [message]: 'querySrv ENOTFOUND _mongodb._tcp.booknest.dn5hxsn.mongodb.net',\n  errno: undefined,\n  code: 'ENOTFOUND',\n  syscall: 'querySrv',\n  hostname: '_mongodb._tcp.booknest.dn5hxsn.mongodb.net'\n}","timestamp":"2025-06-07 11:30:16"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 11:30:24"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 11:30:24"}
+{"level":"warn","message":"Unknown route accessed: POST /api/login","timestamp":"2025-06-07 11:30:28"}
+{"level":"warn","message":"Unknown route accessed: POST /api/login","timestamp":"2025-06-07 11:30:29"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 11:33:35"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 11:33:35"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 11:39:20"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 11:39:20"}
+{"level":"warn","message":"Unknown route accessed: GET /main.cb6c7191464f5ed5794d.hot-update.json","timestamp":"2025-06-07 11:54:46"}
+{"level":"info","message":"✅ Connected to MongoDB","timestamp":"2025-06-07 13:00:14"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000","timestamp":"2025-06-07 13:00:14"}
